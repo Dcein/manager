@@ -13,5 +13,13 @@
     <artifactId>common-module</artifactId>
     <description>common通用工具</description>
 
+    <dependencies>
+
+        <!--common工具包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
