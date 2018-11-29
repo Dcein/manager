@@ -1,5 +1,6 @@
 package com.ding.resource.controller.login;
 
+import com.ding.common.constants.ResponseConstant;
 import com.ding.common.vo.ajax.AjaxResultVo;
 import com.ding.resource.controller.base.BaseController;
 import lombok.extern.slf4j.Slf4j;
@@ -51,11 +52,17 @@ public class LoginController extends BaseController {
             subject.login(token);
             return success();
         } catch (AuthenticationException e) {
-            String msg = "用户或密码错误";
+            String msg = ResponseConstant.USER_LOGIN_ERROR.getMsg();
             if (StringUtils.isNotEmpty(e.getMessage())) {
                 msg = e.getMessage();
             }
             return error(msg);
         }
+    }
+
+    @GetMapping("/unAuth")
+    public String unAuth()
+    {
+        return "/unauth";
     }
 }

@@ -1,13 +1,28 @@
-##spring配置
+######spring配置#######
 spring:
  application:
-   name: resource-service
+   name: sunshine-service
  thymeleaf:
    mode: HTML
    encoding: utf-8
    cache: false
+ devtools:
+   restart:
+     enabled: true
 
+######服务端口号#######
 server:
   port: 8081
+
+#########日志########
 logging:
   config: classpath:logback-spring.xml
+
+#########Shiro########
+shiro:
+  user:
+    loginUrl: /login
+    unauthorizedUrl: /unAuth
+    indexUrl: /index
+    captchaEnabled: true
+    captchaType: math

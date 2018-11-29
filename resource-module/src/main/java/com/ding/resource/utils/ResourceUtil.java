@@ -1,6 +1,6 @@
 package com.ding.resource.utils;
 
-import com.ding.common.constants.ResourceConstant;
+import com.ding.common.constants.BusinessConstant;
 import com.ding.common.vo.user.UserLoginSessionVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +19,6 @@ public class ResourceUtil {
      * @param userLoginSessionVo
      */
     public static void setUserInfoToSession(HttpServletRequest request,UserLoginSessionVo userLoginSessionVo){
-        request.getSession().setAttribute(ResourceConstant.USER_LOGIN_SESSION_INFO,userLoginSessionVo);
+        request.getSession().setAttribute(BusinessConstant.USER_LOGIN_SESSION_INFO,userLoginSessionVo);
     }
 }
