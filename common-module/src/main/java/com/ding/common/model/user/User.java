@@ -1,9 +1,6 @@
 package com.ding.common.model.user;
 
 import com.ding.common.model.BaseModel;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 import java.util.Date;
 import java.util.List;
 

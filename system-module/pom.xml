@@ -2,14 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--父类引用-->
     <parent>
         <artifactId>manager</artifactId>
         <groupId>com.dcein</groupId>
         <version>1.0</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <!--本模块描述-->
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>system-module</artifactId>
+    <description>系统服务模块</description>
+
+    <!--本模块依赖-->
+    <dependencies>
+
+    </dependencies>
 
 
 </project>

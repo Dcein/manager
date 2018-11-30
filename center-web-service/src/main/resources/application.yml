@@ -1,7 +1,7 @@
 ######spring配置#######
 spring:
  application:
-   name: sunshine-service
+   name: center-web-service
  thymeleaf:
    mode: HTML
    encoding: utf-8
@@ -9,6 +9,8 @@ spring:
  devtools:
    restart:
      enabled: true
+ profiles:
+   active: druid
 
 ######服务端口号#######
 server:
