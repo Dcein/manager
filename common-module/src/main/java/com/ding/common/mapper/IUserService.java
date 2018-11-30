@@ -1,4 +1,4 @@
-package com.ding.common.api;
+package com.ding.common.mapper;
 
 import com.ding.common.constants.BaseResponse;
 import com.ding.common.model.user.User;
