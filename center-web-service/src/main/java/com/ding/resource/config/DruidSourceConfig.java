@@ -8,7 +8,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +22,7 @@ import java.util.Map;
 public class DruidSourceConfig {
 
     /**
-     * 数据源配置对象:主库
+     * 数据源配置对象:主库-master
      * @return
      */
     @Bean
@@ -33,7 +32,7 @@ public class DruidSourceConfig {
     }
 
     /**
-     * 数据源配置对象:从库
+     * 数据源配置对象:从库-slave
      * @return
      */
     @Bean

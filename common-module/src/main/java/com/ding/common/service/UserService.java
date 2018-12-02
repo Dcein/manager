@@ -16,12 +16,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements IUserService{
 
+    /**
+     * 根据用户名和密码进行登录
+     * @param username
+     * @param password
+     * @return
+     */
+    @Override
+    public BaseResponse<User> login(String username, String password) {
+        return null;
+    }
+
+    /**
+     * 根据用户名获取用户
+     * @param username
+     * @return
+     */
     @Override
     public BaseResponse<User> getUserByUsername(String username) {
-
-
-
-
         return null;
     }
 }

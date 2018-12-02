@@ -1,11 +1,14 @@
 package com.ding.common.constants;
 
+import lombok.Data;
+
 /**
  * @program: manager
  * @description: 基础响应
  * @author: DingCong
  * @create: 2018-11-29 20:27
  **/
+@Data
 public class BaseResponse<T> {
 
     private String responseCode ="000000";

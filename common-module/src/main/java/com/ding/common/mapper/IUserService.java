@@ -9,6 +9,14 @@ import com.ding.common.model.user.User;
 public interface IUserService {
 
     /**
+     * 根据用户名和密码登录,返回等哭用户信息
+     * @param username
+     * @param password
+     * @return
+     */
+    BaseResponse<User> login(String username ,String password);
+
+    /**
      * 根据用户名称查询用户
      * @param username
      * @return
