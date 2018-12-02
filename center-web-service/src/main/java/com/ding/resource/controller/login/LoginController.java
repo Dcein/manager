@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static com.ding.common.vo.ajax.AjaxResultVo.error;
-import static com.ding.common.vo.ajax.AjaxResultVo.success;
 
 /**
  * @program: manager
@@ -47,13 +45,13 @@ public class LoginController extends BaseController {
         //step3.进行shiro核心realm安全认证平台
         try {
             subject.login(token);
-            return success();
+            return AjaxResultVo.success();
         } catch (AuthenticationException e) {
             String msg = ResponseConstant.USER_LOGIN_ERROR.getMsg();
             if (StringUtils.isNotEmpty(e.getMessage())) {
                 msg = e.getMessage();
             }
-            return error(msg);
+            return AjaxResultVo.error(msg);
         }
     }
 

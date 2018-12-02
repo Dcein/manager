@@ -26,5 +26,14 @@ shiro:
     loginUrl: /login
     unauthorizedUrl: /unAuth
     indexUrl: /index
-    captchaEnabled: true
-    captchaType: math
+
+#mybatis相关配置
+mybatis:
+    type-aliases-package: com.ding
+    mapper-locations: com/ding/common/mapper/*.xml
+mapper:
+    mappers:
+        - tk.mybatis.mapper.common.Mapper
+    not-empty: false
+    identity: MYSQL
+    before: true

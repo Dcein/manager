@@ -17,4 +17,14 @@ public class BusinessConstant {
      * 空值属性
      */
     public static final String EMPTY = "";
+
+    /**
+     * 用户状态有效
+     */
+    public static final String USER_FLAG_VAILD = "1";
+
+    /**
+     * 用户状态无效
+     */
+    public static final String USER_FLAG_INVAILD = "0";
 }

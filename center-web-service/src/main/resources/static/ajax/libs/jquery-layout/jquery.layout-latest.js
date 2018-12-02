@@ -659,7 +659,7 @@ $.layout = {
 		,	webkit:		b === "chrome"	// chrome = webkit
 		,	msie:		ie
 		,	isIE6:		ie && v == 6
-			// ONLY IE reverts to old box-model - Note that compatMode was deprecated as of IE8
+			// ONLY IE reverts to old box-entity - Note that compatMode was deprecated as of IE8
 		,	boxModel:	bm
 		,	boxSizing:	!!(typeof bs === "function" ? bs() : bs)
 		};

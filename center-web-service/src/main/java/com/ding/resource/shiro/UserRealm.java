@@ -1,16 +1,19 @@
-package com.ding.resource.shiro.realm;
+package com.ding.resource.shiro;
 
 import com.ding.common.constants.BaseResponse;
 import com.ding.common.constants.BusinessConstant;
 import com.ding.common.constants.ResponseConstant;
-import com.ding.common.mapper.IUserService;
-import com.ding.common.model.user.User;
+import com.ding.common.entity.SysUser;
+import com.ding.common.service.SysUserService;
+import com.ding.common.vo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @program: manager
@@ -22,7 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserRealm extends AuthorizingRealm {
 
     @Autowired
-    private IUserService userService;
+    private SysUserService userService;
 
     /**
      * @param principalCollection
@@ -58,11 +61,12 @@ public class UserRealm extends AuthorizingRealm {
         }
 
         //step4.进行登录验证
-        User user = null;
+        User user = new User();
         try {
-            BaseResponse<User> login = userService.login(username, password);
+            BaseResponse<SysUser> login = userService.login(username, password);
             if (ResponseConstant.SUCCESS.getCode().equals(login.getResponseCode())){
-                user = login.getData();
+                SysUser data = login.getData();
+                BeanUtils.copyProperties(data,user);
             }
         } catch (Exception e) {
             throw new AuthenticationException(e.getMessage(), e);

@@ -1653,7 +1653,7 @@
 	* ================== */
 
 	$(document).on(
-		'focus.datepicker.data-api click.datepicker.data-api',
+		'focus.datepicker.data-dao click.datepicker.data-dao',
 		'[data-provide="datepicker"]',
 		function(e){
 			var $this = $(this);
