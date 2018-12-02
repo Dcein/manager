@@ -13,8 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @program: manager
@@ -26,12 +30,20 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class LoginController extends BaseController {
 
-    @GetMapping({"/",""})
+    @GetMapping({"/", ""})
     public String login(HttpServletRequest request, HttpServletResponse response) {
         log.info("jump to user login page...");
         return "login";
     }
 
+    /**
+     * 登录认证
+     *
+     * @param username
+     * @param password
+     * @param rememberMe
+     * @return
+     */
     @PostMapping("login")
     @ResponseBody
     public AjaxResultVo ajaxLogin(String username, String password, Boolean rememberMe) {
@@ -55,9 +67,33 @@ public class LoginController extends BaseController {
         }
     }
 
+    /**
+     * 权限认证失败
+     *
+     * @return
+     */
     @GetMapping("/unAuth")
-    public String unAuth()
-    {
+    public String unAuth() {
         return "/unauth";
+    }
+
+    /**
+     * 认证成功,进入首页
+     *
+     * @return
+     */
+    @GetMapping("/index")
+    public String index() {
+        HttpServletRequest httpServletRequest = getHttpServletRequest();
+        HttpSession session = httpServletRequest.getSession();
+        List list = new ArrayList<>();
+        list.add("列表一");
+        list.add("列表二");
+        list.add("列表三");
+        list.add("列表四");
+
+        session.setAttribute("menus",list);
+
+        return "/index";
     }
 }

@@ -2,6 +2,8 @@ package com.ding.resource.controller.base;
 
 import com.ding.common.vo.user.UserLoginSessionVo;
 import com.ding.resource.utils.ResourceUtil;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,5 +22,15 @@ public class BaseController {
      */
     public void setUserLoginInfoToSession(HttpServletRequest request, UserLoginSessionVo userLoginSessionVo){
         ResourceUtil.setUserInfoToSession(request,userLoginSessionVo);
+    }
+
+    /**
+     * 获取HttpServletRequest
+     * @return
+     */
+    public HttpServletRequest getHttpServletRequest(){
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return request;
+
     }
 }
