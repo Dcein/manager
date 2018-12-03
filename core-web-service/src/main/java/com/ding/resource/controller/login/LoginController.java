@@ -1,15 +1,19 @@
 package com.ding.resource.controller.login;
 
 import com.ding.common.constants.ResponseConstant;
+import com.ding.common.entity.SysMenu;
+import com.ding.common.service.SysMenuService;
 import com.ding.common.vo.ajax.AjaxResultVo;
-import com.ding.resource.controller.base.BaseController;
+import com.ding.resource.controller.BaseController;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,6 +34,9 @@ import java.util.List;
 @Controller
 @Slf4j
 public class LoginController extends BaseController {
+
+    @Autowired
+    private SysMenuService sysMenuService;
 
     @GetMapping({"/", ""})
     public String login(HttpServletRequest request, HttpServletResponse response) {
@@ -79,21 +87,16 @@ public class LoginController extends BaseController {
 
     /**
      * 认证成功,进入首页
-     *
      * @return
      */
     @GetMapping("/index")
-    public String index() {
-        HttpServletRequest httpServletRequest = getHttpServletRequest();
-        HttpSession session = httpServletRequest.getSession();
-        List list = new ArrayList<>();
-        list.add("列表一");
-        list.add("列表二");
-        list.add("列表三");
-        list.add("列表四");
+    public String index(ModelMap map) {
 
-        session.setAttribute("menus",list);
-
-        return "/index";
+        List<SysMenu> allMenu = sysMenuService.getAllMenu();
+        map.put("menu", allMenu);
+        map.put("user", "dcein");
+        map.put("copyrightYear", "dcein");
+        return "index";
     }
+
 }

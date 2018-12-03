@@ -1,4 +1,4 @@
-package com.ding.resource.controller.base;
+package com.ding.resource.controller;
 
 import com.ding.common.vo.user.UserLoginSessionVo;
 import com.ding.resource.utils.ResourceUtil;
@@ -31,6 +31,5 @@ public class BaseController {
     public HttpServletRequest getHttpServletRequest(){
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         return request;
-
     }
 }

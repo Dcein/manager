@@ -82,7 +82,6 @@ public class ShiroConfig {
 
         // 所有请求需要认证
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-
         return shiroFilterFactoryBean;
     }
 
