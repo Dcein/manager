@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @program: manager
- * @description: 基础响应
+ * @description: 统一基础响应,所有响应必须统一返回
  * @author: DingCong
  * @create: 2018-11-29 20:27
  **/

@@ -2,7 +2,7 @@ package com.ding.resource.shiro;
 
 import com.ding.common.constants.BaseResponse;
 import com.ding.common.constants.BusinessConstant;
-import com.ding.common.constants.ResponseConstant;
+import com.ding.common.constants.ResponseCodeAndMsg;
 import com.ding.common.entity.SysUser;
 import com.ding.common.service.SysUserService;
 import com.ding.common.vo.User;
@@ -13,7 +13,6 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * @program: manager
@@ -64,7 +63,7 @@ public class UserRealm extends AuthorizingRealm {
         User user = new User();
         try {
             BaseResponse<SysUser> login = userService.login(username, password);
-            if (ResponseConstant.SUCCESS.getCode().equals(login.getResponseCode())){
+            if (ResponseCodeAndMsg.SUCCESS.getCode().equals(login.getResponseCode())){
                 SysUser data = login.getData();
                 BeanUtils.copyProperties(data,user);
             }

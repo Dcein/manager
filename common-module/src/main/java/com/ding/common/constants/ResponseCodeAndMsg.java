@@ -6,7 +6,7 @@ package com.ding.common.constants;
  * @author: DingCong
  * @create: 2018-11-29 14:54
  **/
-public enum  ResponseConstant {
+public enum ResponseCodeAndMsg {
 
     SUCCESS("000000","SUCCESS"),
 
@@ -16,7 +16,7 @@ public enum  ResponseConstant {
 
     private String msg;
 
-    private ResponseConstant(String code,String msg){
+    private ResponseCodeAndMsg(String code, String msg){
         this.code = code;
         this.msg = msg;
     }

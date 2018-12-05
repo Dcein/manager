@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 /**
  * @program: manager
- * @description: ajax校验结果vo
+ * @description: ajax校验结果响应vo
  * @author: DingCong
  * @create: 2018-11-29 16:08
  **/

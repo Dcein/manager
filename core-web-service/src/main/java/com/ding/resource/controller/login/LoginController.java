@@ -1,6 +1,6 @@
 package com.ding.resource.controller.login;
 
-import com.ding.common.constants.ResponseConstant;
+import com.ding.common.constants.ResponseCodeAndMsg;
 import com.ding.common.entity.SysMenu;
 import com.ding.common.service.SysMenuService;
 import com.ding.common.vo.ajax.AjaxResultVo;
@@ -20,9 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -67,7 +64,7 @@ public class LoginController extends BaseController {
             subject.login(token);
             return AjaxResultVo.success();
         } catch (AuthenticationException e) {
-            String msg = ResponseConstant.USER_LOGIN_ERROR.getMsg();
+            String msg = ResponseCodeAndMsg.USER_LOGIN_ERROR.getMsg();
             if (StringUtils.isNotEmpty(e.getMessage())) {
                 msg = e.getMessage();
             }
