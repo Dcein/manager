@@ -89,10 +89,6 @@ public class LoginController extends BaseController {
     @GetMapping("/index")
     public String index(ModelMap map) {
 
-        List<SysMenu> allMenu = sysMenuService.getAllMenu();
-        map.put("menu", allMenu);
-        map.put("user", "dcein");
-        map.put("copyrightYear", "dcein");
         return "index";
     }
 
