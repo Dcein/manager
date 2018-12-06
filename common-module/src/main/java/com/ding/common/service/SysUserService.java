@@ -79,5 +79,19 @@ public class SysUserService  {
         return b;
     }
 
+    /**
+     * 根据用户名和密码查询用户
+     * @param account
+     * @param password
+     * @return
+     */
+    public SysUser getUserByUsernameAndPassword(String account,String password){
+        SysUser user = new SysUser();
+        user.setAccount(account);
+        user.setUserPassword(password);
+        SysUser sysUser = sysUserMapper.selectOne(user);
+        return sysUser;
+
+    }
 
 }

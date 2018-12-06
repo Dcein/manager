@@ -1,9 +1,14 @@
 package com.ding.resource.controller.login;
 
+import com.ding.common.constants.BusinessConstant;
 import com.ding.common.constants.ResponseCodeAndMsg;
 import com.ding.common.entity.SysMenu;
+import com.ding.common.entity.SysUser;
 import com.ding.common.service.SysMenuService;
+import com.ding.common.service.SysUserService;
+import com.ding.common.vo.User;
 import com.ding.common.vo.ajax.AjaxResultVo;
+import com.ding.common.vo.user.UserLoginSessionVo;
 import com.ding.resource.controller.BaseController;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -11,11 +16,13 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,18 +30,29 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
+ * <P>
+ *     用户完成登陆至成功到主页面,登陆失败返回认证失败页面
+ * </P>
  * @program: manager
  * @description: 登陆控制器
  * @author: DingCong
  * @create: 2018-11-29 13:34
  **/
-@Controller
+
 @Slf4j
+@Controller
 public class LoginController extends BaseController {
 
     @Autowired
-    private SysMenuService sysMenuService;
+    private SysUserService userService;
 
+
+    /**
+     * 请求控制器
+     * @param request
+     * @param response
+     * @return
+     */
     @GetMapping({"/", ""})
     public String login(HttpServletRequest request, HttpServletResponse response) {
         log.info("jump to user login page...");
@@ -42,14 +60,13 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 登录认证
-     *
+     * 登录认证控制器
      * @param username
      * @param password
      * @param rememberMe
      * @return
      */
-    @PostMapping("login")
+    @PostMapping("ajaxLogin")
     @ResponseBody
     public AjaxResultVo ajaxLogin(String username, String password, Boolean rememberMe) {
 
@@ -62,6 +79,11 @@ public class LoginController extends BaseController {
         //step3.进行shiro核心realm安全认证平台
         try {
             subject.login(token);
+            SysUser user = userService.getUserByUsernameAndPassword(username, password);
+            UserLoginSessionVo sessionVo = new UserLoginSessionVo();
+            sessionVo.setPassword(user.getUserPassword());
+            sessionVo.setUserId(user.getId());
+            setUserLoginInfoToSession(getHttpServletRequest(),sessionVo);
             return AjaxResultVo.success();
         } catch (AuthenticationException e) {
             String msg = ResponseCodeAndMsg.USER_LOGIN_ERROR.getMsg();
@@ -73,8 +95,7 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 权限认证失败
-     *
+     * 登陆认证失败,返回失败页面
      * @return
      */
     @GetMapping("/unAuth")
@@ -83,12 +104,11 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 认证成功,进入首页
+     * 认证成功,进入首页内容页面
      * @return
      */
     @GetMapping("/index")
     public String index(ModelMap map) {
-
         return "index";
     }
 

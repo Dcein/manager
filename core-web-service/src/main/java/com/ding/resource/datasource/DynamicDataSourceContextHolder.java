@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
  * @Auther: DingCong
  */
 public class DynamicDataSourceContextHolder {
+
     public static final Logger log = LoggerFactory.getLogger(DynamicDataSourceContextHolder.class);
 
     /**

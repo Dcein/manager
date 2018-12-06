@@ -14,7 +14,7 @@ public class UserLoginSessionVo {
     /**
      * 用户id
      */
-    private Long userId;
+    private Integer userId;
 
     /**
      * 用户登录密码

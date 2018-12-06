@@ -1,6 +1,5 @@
 
 $(function() {
-    debugger
     validateRule();
     $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});
 	$('.imgcode').click(function() {
@@ -23,7 +22,7 @@ function login() {
     var rememberMe = $("input[name='rememberme']").is(':checked');
     $.ajax({
         type: "post",
-        url: ctx + "login",
+        url: ctx + "ajaxLogin",
         data: {
             "username": username,
             "password": password,

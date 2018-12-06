@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author: DingCong
  * @create: 2018-11-29 14:39
  **/
-public class ResourceUtil {
+public class WebMvcUtil {
 
     /**
      * 保存用户登陆信息至session会话
@@ -20,5 +20,6 @@ public class ResourceUtil {
      */
     public static void setUserInfoToSession(HttpServletRequest request,UserLoginSessionVo userLoginSessionVo){
         request.getSession().setAttribute(BusinessConstant.USER_LOGIN_SESSION_INFO,userLoginSessionVo);
+        request.getSession().setMaxInactiveInterval(600);
     }
 }

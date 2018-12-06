@@ -1,7 +1,7 @@
 package com.ding.resource.controller;
 
 import com.ding.common.vo.user.UserLoginSessionVo;
-import com.ding.resource.utils.ResourceUtil;
+import com.ding.resource.utils.WebMvcUtil;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -21,7 +21,7 @@ public class BaseController {
      * @param userLoginSessionVo
      */
     public void setUserLoginInfoToSession(HttpServletRequest request, UserLoginSessionVo userLoginSessionVo){
-        ResourceUtil.setUserInfoToSession(request,userLoginSessionVo);
+        WebMvcUtil.setUserInfoToSession(request,userLoginSessionVo);
     }
 
     /**

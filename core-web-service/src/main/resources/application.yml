@@ -1,4 +1,4 @@
-######spring配置#######
+#-----------------spring配置-----------------
 spring:
  application:
    name: center-web-service
@@ -12,22 +12,25 @@ spring:
  profiles:
    active: druid
 
-######服务端口号#######
+#-----------------服务端口号--------------------
 server:
   port: 8081
+  servlet:
+    session:
+      timeout: 10
 
-#########日志########
+#-------------------日志------------------------
 logging:
   config: classpath:logback-spring.xml
 
-#########Shiro########
+#------------------Shiro配置--------------------
 shiro:
   user:
     loginUrl: /login
     unauthorizedUrl: /unAuth
     indexUrl: /index
 
-#mybatis相关配置
+#-----------------mybatis相关配置----------------
 mybatis:
     type-aliases-package: com.ding
     mapper-locations: com/ding/common/mapper/*.xml

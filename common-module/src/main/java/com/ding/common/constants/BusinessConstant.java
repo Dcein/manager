@@ -27,4 +27,7 @@ public class BusinessConstant {
      * 用户状态无效
      */
     public static final String USER_FLAG_INVAILD = "0";
+
+
+    public static final String SYS_USER_MAPPER = "sysUserMapper";
 }

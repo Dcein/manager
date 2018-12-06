@@ -1,4 +1,4 @@
-##项目架构
+##基于Springboot学习框架
 1.整体架构
    
    项目采用SpringBoot为核心架构,Mybatis为持久层,Ehcache为缓存等开发的练习系统
