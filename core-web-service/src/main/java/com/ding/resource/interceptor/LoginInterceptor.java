@@ -44,7 +44,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         }
 
         //step3.进行页面跳转
-        String returnUrl = "/";
+        String returnUrl = "/login";
         log.info("该用户未登陆,拦截跳转登陆地址:" + returnUrl);
         response.sendRedirect(returnUrl);
         return false;

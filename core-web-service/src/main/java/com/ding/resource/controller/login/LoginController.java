@@ -1,12 +1,8 @@
 package com.ding.resource.controller.login;
 
-import com.ding.common.constants.BusinessConstant;
 import com.ding.common.constants.ResponseCodeAndMsg;
-import com.ding.common.entity.SysMenu;
 import com.ding.common.entity.SysUser;
-import com.ding.common.service.SysMenuService;
 import com.ding.common.service.SysUserService;
-import com.ding.common.vo.User;
 import com.ding.common.vo.ajax.AjaxResultVo;
 import com.ding.common.vo.user.UserLoginSessionVo;
 import com.ding.resource.controller.BaseController;
@@ -16,18 +12,14 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * <P>
@@ -53,7 +45,7 @@ public class LoginController extends BaseController {
      * @param response
      * @return
      */
-    @GetMapping({"/", ""})
+    @GetMapping("login")
     public String login(HttpServletRequest request, HttpServletResponse response) {
         log.info("jump to user login page...");
         return "login";

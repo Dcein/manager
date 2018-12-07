@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @Auther: dingcongcong
+ * @Auther: DingCong
  * @Date: 2018/12/2 15:02
  * @Description: ShiroConfig自动加载配置
  */

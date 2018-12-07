@@ -5,7 +5,7 @@ import com.ding.common.constants.BusinessConstant;
 import com.ding.common.constants.ResponseCodeAndMsg;
 import com.ding.common.entity.SysUser;
 import com.ding.common.service.SysUserService;
-import com.ding.common.vo.User;
+import com.ding.common.vo.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

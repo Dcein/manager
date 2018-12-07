@@ -1,10 +1,11 @@
 package com.ding.resource;
 
-import org.springframework.boot.web.servlet.ServletComponentScan;
-import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.ApplicationContext;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * <p>
@@ -20,13 +21,13 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  *     是以前的<context:component-scan>（以前使用在xml中使用的标签，用来扫描包配置的平行支持）。
  * </p>
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class},scanBasePackages="com.ding")
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class},scanBasePackages="com.ding.*")
 @ServletComponentScan
 @MapperScan(basePackages = "com.ding.common")
 public class CoreServiceApplication {
 
     public static void main(String[] args){
-        SpringApplication.run(CoreServiceApplication.class,args);
+        ApplicationContext context = SpringApplication.run(CoreServiceApplication.class, args);
         System.out.println("The project was startup already!");
     }
 

@@ -14,6 +14,7 @@ $.validator.setDefaults({
     }
 });
 
+//登陆功能
 function login() {
 	$.modal.loading($("#btnSubmit").data("loading"));
 	var username = $.common.trim($("input[name='username']").val());
@@ -42,9 +43,7 @@ function login() {
     });
 }
 
-/**
- * 校验规则:校验必填项
- */
+//校验输入框
 function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
     $("#signupForm").validate({
