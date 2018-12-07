@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * <p>
- *     建立动态数据源类，注意，这个类必须继承AbstractRoutingDataSource
+ *     建立动态数据源类,须继承AbstractRoutingDataSource
  * </p>
  * @author DingCong
  */

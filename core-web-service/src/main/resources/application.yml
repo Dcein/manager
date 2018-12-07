@@ -23,7 +23,7 @@ server:
 logging:
   config: classpath:logback-spring.xml
 
-#------------------Shiro配置--------------------
+#------------------shiro配置--------------------
 shiro:
   user:
     loginUrl: /login

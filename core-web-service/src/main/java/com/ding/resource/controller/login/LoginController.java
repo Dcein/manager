@@ -30,14 +30,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author: DingCong
  * @create: 2018-11-29 13:34
  **/
-
 @Slf4j
 @Controller
 public class LoginController extends BaseController {
 
     @Autowired
     private SysUserService userService;
-
 
     /**
      * 请求控制器
@@ -92,7 +90,7 @@ public class LoginController extends BaseController {
      */
     @GetMapping("/unAuth")
     public String unAuth() {
-        return "/unauth";
+        return "unauth";
     }
 
     /**
