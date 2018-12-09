@@ -1,13 +1,10 @@
 package com.ding.resource.interceptor;
 
 import com.ding.common.constants.BusinessConstant;
-import com.ding.common.dao.SysUserMapper;
-import com.ding.common.spring.SpringContext;
 import com.ding.common.vo.user.UserLoginSessionVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

@@ -34,7 +34,7 @@ public class BusinessConstant {
     public static final String[] INTERCEPTOR_EXCLUDE_PATTEN = {"/ajaxLogin","/error","/login","/css/**","/js/**","/resource/**","/ajax/**","/fonts/**","/img/**","/sounds/**"};
 
     /**
-     * 用户接口服务
+     * 用户接口服务常量
      */
     public static final String SYS_USER_MAPPER = "sysUserMapper";
 }

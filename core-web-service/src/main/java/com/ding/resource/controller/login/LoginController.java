@@ -43,7 +43,7 @@ public class LoginController extends BaseController {
      * @param response
      * @return
      */
-    @GetMapping("login")
+    @GetMapping({"","/","login"})
     public String login(HttpServletRequest request, HttpServletResponse response) {
         log.info("jump to user login page...");
         return "login";
@@ -98,7 +98,7 @@ public class LoginController extends BaseController {
      * @return
      */
     @GetMapping("/index")
-    public String index(ModelMap map) {
+    public String index() {
         return "index";
     }
 
