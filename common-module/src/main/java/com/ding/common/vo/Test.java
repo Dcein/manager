@@ -1,6 +1,8 @@
 package com.ding.common.vo;
 
+import com.ding.common.vo.user.User;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * @program: manager
@@ -36,14 +38,18 @@ public class Test {
 
             System.out.println(sex);
         }
+
+
+
+
     }
 
 
     public static void main(String[] args) {
 
-        Person p = new Person();
-        p.setName("张三");
-        System.out.println(p.getName());
+       User user = new User();
+        System.out.println(user);
+
 
 
 

@@ -1,5 +1,9 @@
 package com.ding.resource.utils;
 
+import com.ding.common.vo.user.User;
+
+import java.util.Arrays;
+
 /**
  * @program: manager
  * @description: 算法工具类
@@ -54,12 +58,77 @@ public class Algorithm {
         return m2;
     }
 
+    /**
+     * 冒泡排序
+     * @param array
+     * @return
+     */
+    public static void bubbleSort(int[] array){
+
+        //step1.计算出数组的长度
+        int length = array.length;
+
+        //step2.用于存储暂时最大变量
+        int max;
+
+        //step3.开始进行分趟排序(外层循环控制趟数,内层控制比较轮数)
+        System.out.println("开始冒泡排序,原始数组:"+Arrays.toString(array));
+        for(int i=0; i<length-1; i++){
+            for (int j=0; j<length-1-i; j++){
+
+                //step3.1.比较找出最大值
+                if (array[j] > array[j+1]){
+                    max = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = max;
+                }
+
+                System.out.println("第"+(i+1)+"趟,第"+(j+1)+"轮排序:"+Arrays.toString(array));
+            }
+            System.out.println("**第"+(i+1)+"轮排序完成**:"+Arrays.toString(array));
+        }
+    }
+
+    /**
+     * <h2>选择排序</h2>
+     * <P>依次找出最小的元素放在第一位</P>
+     * <p>选择排序（Selection sort）是一种简单直观的排序算法。
+     * 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，
+     * 然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+     * 以此类推，直到全部待排序的数据元素排完。 选择排序是不稳定的排序方法。
+     * </p>
+     * @param array
+     */
+    public static void selectSort(int[] array){
+
+        //用于存放最小的值(或最大)
+        int min;
+
+        //遍历当前数组,找出最小的值
+        for (int i=0; i<array.length; i++){
+            for (int j=i; j<array.length; j++){
+
+            }
+        }
+    }
+
+
 
 
     public static void main(String[] args) {
-        Long seriesNum = getSeriesNum(8);
+        /*Long seriesNum = getSeriesNum(8);
         System.out.println(seriesNum);
         Long fibSeries = getFibSeries(3);
-        System.out.println(fibSeries);
+        System.out.println(fibSeries);*/
+        int[] i = {23,12,1,12,24,6};
+        bubbleSort(i);
+
+        User u = new User();
+        System.out.println(u.toString());
+
+        String s1 = "nadkhakdhk";
+        System.out.println(s1);
+
+
     }
 }
