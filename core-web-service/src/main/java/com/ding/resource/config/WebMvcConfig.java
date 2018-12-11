@@ -33,12 +33,15 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry){
+
+        //No.1.登陆拦截器进行注册
         registry.addInterceptor(loginInterceptor)
 
-                //拦截所有请求
-                .addPathPatterns("/**")
+                //拦截器须拦截的请求
+                .addPathPatterns(BusinessConstant.INTERCEPTOR_ALL_PATTERN)
 
-                //项目启动登陆接口不被拦截
+                //拦截器排除拦截请求
                 .excludePathPatterns(Arrays.asList(BusinessConstant.INTERCEPTOR_EXCLUDE_PATTEN));
+
     }
 }

@@ -3,6 +3,7 @@ package com.ding.resource.controller.login;
 import com.ding.common.constants.ResponseCodeAndMsg;
 import com.ding.common.entity.SysUser;
 import com.ding.common.service.SysUserService;
+import com.ding.common.utils.common.CommonUtils;
 import com.ding.common.vo.ajax.AjaxResultVo;
 import com.ding.common.vo.user.UserLoginSessionVo;
 import com.ding.resource.controller.BaseController;
@@ -46,6 +47,7 @@ public class LoginController extends BaseController {
     @GetMapping({"","/","login"})
     public String login(HttpServletRequest request, HttpServletResponse response) {
         log.info("jump to user login page...");
+        boolean mobileDevice = CommonUtils.isMobileDevice(request);
         return "login";
     }
 
