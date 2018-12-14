@@ -41,4 +41,22 @@ public class CommonUtils {
         log.info("本设备为PC端设备");
         return false;
     }
+
+    /**
+     * 判断一个对象为空
+     * @param obj
+     * @return
+     */
+    public static boolean isNull(Object obj){
+        return obj == null;
+    }
+
+    /**
+     * 判断一个对象不为空
+     * @param obj
+     * @return
+     */
+    public static boolean isNotNull(Object obj){
+        return !isNull(obj);
+    }
 }

@@ -23,12 +23,18 @@ server:
 logging:
   config: classpath:logback-spring.xml
 
-#------------------shiro配置--------------------
+#-----------shiro用户块和session配置------------
 shiro:
   user:
     loginUrl: /login
     unauthorizedUrl: /unAuth
     indexUrl: /index
+    captchaEnabled: false
+    captchaType: math
+  session:
+    expireTime: 30
+    dbSyncPeriod: 1
+    validationInterval: 10
 
 #-----------------mybatis相关配置----------------
 mybatis:

@@ -1,6 +1,9 @@
 package com.ding.resource.config;
 
+import com.ding.common.constants.SystemConstant;
+import com.ding.common.utils.common.CommonUtils;
 import com.ding.resource.shiro.UserRealm;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -9,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -29,8 +33,44 @@ public class ShiroConfig {
     @Value("${shiro.user.unauthorizedUrl}")
     private String unauthorizedUrl;
 
+    // Session超时时间，单位为毫秒（默认30分钟）
+    @Value("${shiro.session.expireTime}")
+    private int expireTime;
+
+    // 相隔多久检查一次session的有效性，单位毫秒，默认就是10分钟
+    @Value("${shiro.session.validationInterval}")
+    private int validationInterval;
+
+    // 验证码开关
+    @Value("${shiro.user.captchaEnabled}")
+    private boolean captchaEnabled;
+
+    // 验证码类型
+    @Value("${shiro.user.captchaType}")
+    private String captchaType;
+
+    /**
+     * 获取ehcache缓存
+     * @return
+     */
+    @Bean
+    public EhCacheManager getEhCacheManager() {
+        net.sf.ehcache.CacheManager cacheManager = net.sf.ehcache.CacheManager.getCacheManager(SystemConstant.CACHE_MANAGER_DEVICE);
+        EhCacheManager cache = new EhCacheManager();
+        if (CommonUtils.isNull(cacheManager)) {
+            cache.setCacheManagerConfigFile("classpath:ehcache/ehcache-shiro.xml");
+            return cache;
+        } else {
+            cache.setCacheManager(cacheManager);
+            return cache;
+        }
+    }
+
+
+
     /**
      * 自定义realm
+     *
      * @return
      */
     @Bean
@@ -86,7 +126,8 @@ public class ShiroConfig {
     }
 
 
-    /** 开启Shiro注解通知器
+    /**
+     * 开启Shiro注解通知器
      * 加入注解的使用，不加入这个注解不生效
      */
     @Bean

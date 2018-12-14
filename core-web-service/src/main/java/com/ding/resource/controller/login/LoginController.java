@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,6 +68,9 @@ public class LoginController extends BaseController {
 
         //step2.获取登陆对象
         Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        session.getTimeout()
+
 
         //step3.进行shiro核心realm安全认证平台
         try {
