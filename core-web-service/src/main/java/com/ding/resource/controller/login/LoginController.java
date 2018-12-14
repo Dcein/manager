@@ -69,7 +69,7 @@ public class LoginController extends BaseController {
         //step2.获取登陆对象
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
-        session.getTimeout()
+        session.getTimeout();
 
 
         //step3.进行shiro核心realm安全认证平台
