@@ -70,7 +70,6 @@ public class ShiroConfig {
 
     /**
      * 自定义realm
-     *
      * @return
      */
     @Bean
