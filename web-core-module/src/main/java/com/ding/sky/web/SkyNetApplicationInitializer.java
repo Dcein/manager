@@ -1,4 +1,4 @@
-package com.ding.skynet.web;
+package com.ding.sky.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
