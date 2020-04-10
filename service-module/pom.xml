@@ -2,28 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <!--父类引用-->
     <parent>
         <artifactId>skynet</artifactId>
         <groupId>com.dcein</groupId>
         <version>${revision}</version>
     </parent>
-
-    <!--本模块描述-->
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>system-module</artifactId>
-    <description>系统服务模块</description>
 
-    <!--本模块依赖-->
-    <dependencies>
-        <!--依赖本项目公共资源模块-->
-        <dependency>
-            <groupId>com.dcein</groupId>
-            <artifactId>common-module</artifactId>
-            <version>${revision}</version>
-        </dependency>
-    </dependencies>
+    <artifactId>service-module</artifactId>
 
 
 </project>

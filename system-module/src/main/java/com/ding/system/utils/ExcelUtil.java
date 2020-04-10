@@ -1,8 +1,5 @@
 package com.ding.system.utils;
 
-import com.ding.common.dao.SysUserMapper;
-import com.ding.common.spring.SpringContext;
-
 /**
  * @program: manager
  * @description: Excel表格工具类
@@ -11,15 +8,4 @@ import com.ding.common.spring.SpringContext;
  **/
 public class ExcelUtil {
 
-
-    public static void exportExcel(){
-
-        SysUserMapper bean = (SysUserMapper)SpringContext.getBean("SysUserMapper");
-
-    }
-
-    public static void main(String[] args) {
-        SysUserMapper bean = (SysUserMapper)SpringContext.getBean("SysUserMapper");
-        System.out.println(bean);
-    }
 }

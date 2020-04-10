@@ -1,14 +1,17 @@
-##基于Springboot学习框架
+##基于Springboot天网架构
 1.整体架构
    
    项目采用SpringBoot为核心架构,Mybatis为持久层,Ehcache为缓存等开发的练习系统
 ```tex
-    manager
+    skynet[天网]
     |
-    |---common--"公共资源模块"
+    |---[web-core-module]---控制器层
     |
-    |---quratz--"定时任务框架"
+    |---[service-module]---服务层
     |
-    |---resource--"项目内容资源模块"
+    |---[common-module]---公共资源模块
     |
-    |---system--"系统资源模块"
+    |---[quratz-module]---定时任务框架
+    |
+    |---[system-module]---系统资源模块
+    |

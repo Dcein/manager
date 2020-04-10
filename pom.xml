@@ -5,20 +5,21 @@
 
     <!--本项目坐标-->
     <groupId>com.dcein</groupId>
-    <artifactId>manager</artifactId>
+    <artifactId>skynet</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
     <!--本项目模块描述-->
-    <name>manager</name>
-    <description>DingCong exercise for Spring Boot</description>
+    <name>skynet</name>
+    <description>DingCong's sky net system designed by Spring boot</description>
 
     <!--所有模块-->
     <modules>
-        <module>core-web-service</module>
+        <module>web-core-module</module>
         <module>system-module</module>
         <module>common-module</module>
         <module>quartz-module</module>
+        <module>service-module</module>
     </modules>
 
     <!--引入springBoot依赖-->
@@ -47,11 +48,11 @@
         <druid.version>1.1.10</druid.version>
         <mybatis-tool.version>1.2.3</mybatis-tool.version>
 
-        <!--fastjson-->
+        <!--fast json-->
         <fastjson.version>1.2.45</fastjson.version>
     </properties>
 
-    <!--项目必须的依赖-->
+    <!--项目必须的依赖,各个子类会继承下去-->
     <dependencies>
 
         <!--Spring框架基本的核心工具-->
@@ -95,10 +96,9 @@
 
     </dependencies>
 
-    <!--依赖版本统一管理-->
+    <!--依赖版本统一管理，这里定义的只是依赖的声明，并不实现引入，因此子项目需要显式的声明需要用的依赖-->
     <dependencyManagement>
         <dependencies>
-
             <!--common公共包-->
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -143,7 +143,6 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
